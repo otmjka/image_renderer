@@ -4,6 +4,7 @@ import { errors as joiErrors } from 'celebrate';
 import apiErrorHandler from 'api-error-handler';
 import * as Sentry from '@sentry/node';
 import commonRoutes from './common/commonRoutes';
+import digestRoutes from './digest/digestRoutes';
 import config from './config';
 
 const app = express();
@@ -13,6 +14,7 @@ if (config.sentry.dsn) {
 app.use(bodyParser.json());
 
 commonRoutes(app);
+digestRoutes(app);
 
 app.use(joiErrors());
 // should be after joi, they also throw exceptions

@@ -1,0 +1,125 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "base-service-deployment.fullname" . }}
+  labels:
+    app: {{ template "base-service-deployment.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  template:
+    metadata:
+      labels:
+        app: {{ template "base-service-deployment.fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+    spec:
+      containers:
+        - name: main
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          command: ["/bin/sh", "-c"]
+          args: {{ toJson .Values.image.command }}
+          ports:
+            - name: web
+              containerPort: {{ .Values.service.webPort }}
+          env:
+            - name: DATABASE_HOST
+              value: 127.0.0.1
+            - name: DATABASE_PORT
+              value: '3306'
+            - name: DATABASE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: common
+                  key: database-name
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: database
+                  key: username
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: database
+                  key: password
+            - name: RABBITMQ_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: common
+                  key: rabbitmq-host
+            - name: RABBITMQ_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: common
+                  key: rabbitmq-port
+            - name: RABBITMQ_USER
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq
+                  key: username
+            - name: RABBITMQ_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq
+                  key: password
+            - name: RABBITMQ_COMMON_EXCHANGE
+              valueFrom:
+                configMapKeyRef:
+                  name: amqp
+                  key: common-exchange
+            - name: SENTRY_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: sentry
+                  key: base-service-dsn
+                  optional: true
+            - name: TOKEN_ISSUER
+              valueFrom:
+                configMapKeyRef:
+                  name: auth0
+                  key: issuer
+            - name: TOKEN_CERTS_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: auth0
+                  key: certs-uri
+            - name: TOKEN_AUDIENCE
+              valueFrom:
+                configMapKeyRef:
+                  name: auth0
+                  key: base-service-audience
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.service.webPort }}
+            initialDelaySeconds: 20
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.service.webPort }}
+            initialDelaySeconds: 5
+            timeoutSeconds: 3
+            periodSeconds: 5
+        - name: cloudsql-proxy
+          image: gcr.io/cloudsql-docker/gce-proxy:1.14
+          command:
+            - "/cloud_sql_proxy"
+            - "-instances={{ .Values.cloudSql.instanceConnectionName }}=tcp:3306"
+            - "-credential_file=/secrets/cloudsql/gcp-cloud-sql-client.json"
+          securityContext:
+            runAsUser: 2  # non-root user
+            allowPrivilegeEscalation: false
+          volumeMounts:
+            - name: cloudsql-instance-credentials
+              mountPath: /secrets/cloudsql
+              readOnly: true
+      volumes:
+        - name: cloudsql-instance-credentials
+          secret:
+            secretName: cloud-sql-client-credentials
+      imagePullSecrets: {{ toJson .Values.image.pullSecrets }}
+      nodeSelector: {{ toJson .Values.nodeSelector }}

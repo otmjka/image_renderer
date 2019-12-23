@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Voypost Base Service
+name: base-service-service
+version: 0.1.0

@@ -1,0 +1,3 @@
+*.test.js
+tests/
+__mocks__/

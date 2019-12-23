@@ -1,0 +1,13 @@
+# Don't check auto-generated stuff into git
+coverage
+lib
+node_modules
+stats.json
+.env
+
+# Cruft
+npm-debug.log
+yarn-error.log
+
+k8s/generated_manifests/*
+!k8s/generated_manifests/.gitkeep

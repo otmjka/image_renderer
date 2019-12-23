@@ -1,0 +1,133 @@
+version: 2.1
+__steps:
+  - run: &docker_login
+      name: docker login
+      command: gcloud auth configure-docker
+  - run: &gcloud_login
+      name: gcloud login
+      command: |
+        # deploy to other prod environments
+        if [[ "${ENV}" == "staging" ]]
+        then
+          echo ${GCLOUD_SERVICE_KEY_STAGING} | gcloud auth activate-service-account --key-file=-
+        else
+          echo ${GCLOUD_SERVICE_KEY} | gcloud auth activate-service-account --key-file=-
+        fi
+        gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+        gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+  - docker_ci: &docker_ci
+      docker:
+      - image: voypost/ci:1.0.0-gcloud
+  - deploy_app: &deploy_app
+      docker:
+      - image: voypost/ci:1.0.0-gcloud
+      steps:
+        - checkout
+        - run: *gcloud_login
+        - run:
+            name: get k8s credentials
+            command: gcloud container clusters get-credentials $CLUSTER_NAME --zone "${GOOGLE_COMPUTE_ZONE}"
+        - run:
+            name: execute deployment
+            command: |-
+              TAG_NAME=$CIRCLE_SHA1 ENV=$ENV sh ./scripts/deploy.sh
+
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node:12-stretch
+      - image: circleci/mariadb:10.1-ram
+        environment:
+          MYSQL_DATABASE: test
+          MYSQL_ROOT_HOST: "%"
+          MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+    environment:
+      NODE_ENV: development
+      DATABASE_HOST: 127.0.0.1
+      DATABASE_PORT: 3306
+      DATABASE_USER: root
+      DATABASE_PASSWORD: ""
+      DATABASE_NAME: test
+    steps:
+      - checkout
+      - run:
+          name: Install
+          command: "yarn"
+      - run:
+          name: "Wait for database to be available"
+          command: "dockerize -wait tcp://127.0.0.1:3306 -timeout 1m"
+      - run:
+          name: "Lint code"
+          command: "yarn lint"
+      - run:
+          name: "Run tests"
+          command: "yarn test"
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  docker_build:
+    <<: *docker_ci
+    environment:
+      REPO: gcr.io/voypost-260614/base-service
+      GOOGLE_PROJECT_ID: voypost-staging
+      GOOGLE_COMPUTE_ZONE: europe-west3-a
+    steps:
+      - attach_workspace:
+          at: .
+      # Not available in the free plan
+      # - setup_remote_docker:
+      #     docker_layer_caching: true
+      - setup_remote_docker
+      - run: *gcloud_login
+      - run: *docker_login
+      - run: docker build --build-arg NODE_ENV=production --build-arg RUN_ESLINT=false --build-arg RUN_JEST=false -t $REPO:$CIRCLE_SHA1 .
+      - run: docker push $REPO:$CIRCLE_SHA1
+      - run:
+          name: Promote
+          command: |-
+            docker tag $REPO:$CIRCLE_SHA1 $REPO:latest
+            docker push $REPO:latest
+
+  deploy_production:
+    <<: *deploy_app
+    environment:
+      ENV: prod
+      GOOGLE_PROJECT_ID: voypost-260614
+      CLUSTER_NAME: voypost
+      GOOGLE_COMPUTE_ZONE: europe-west3-a
+
+  deploy_staging:
+    <<: *deploy_app
+    environment:
+      ENV: staging
+      GOOGLE_PROJECT_ID: voypost-staging
+      CLUSTER_NAME: voypost
+      GOOGLE_COMPUTE_ZONE: europe-west3-a
+
+workflows:
+  build:
+    jobs:
+      - test
+      - docker_build:
+          filters: &only_master
+            branches:
+              only:
+                - master
+          requires:
+            - test
+      - deploy_staging:
+          filters: *only_master
+          requires:
+            - docker_build
+      - approve_production:
+          type: approval
+          filters: *only_master
+          requires:
+            - deploy_staging
+      - deploy_production:
+          filters: *only_master
+          requires:
+            - approve_production

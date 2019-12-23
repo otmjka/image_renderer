@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  maria:
+    image: mariadb:10.1.32
+    restart: always
+    expose:
+      - '3306'
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_USER: voypost
+      MYSQL_PASSWORD: voypost
+      MYSQL_DATABASE: voypost
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+  rabbitmq:
+    image: rabbitmq:3-management
+    restart: always
+    expose:
+      - '15672'
+      - '5672'
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    environment:
+      RABBITMQ_DEFAULT_USER: voypost
+      RABBITMQ_DEFAULT_PASS: voypost

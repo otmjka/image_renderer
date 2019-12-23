@@ -1,0 +1,8 @@
+debug: false
+image:
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+  command: ["yarn start"]
+nodeSelector: {}
+service:
+  webPort: '8080'

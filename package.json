@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@sentry/node": "^5.0.0",
-    "amqplib": "^0.5.2",
     "api-error-handler": "https://github.com/voypost/api-error-handler.git#3088f22957aa2c5b3155e5fab92ee3ccc8335c4c",
     "body-parser": "^1.18.2",
     "casbin": "^3.0.8",

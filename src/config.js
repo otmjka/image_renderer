@@ -1,17 +1,4 @@
 export default {
-  amqp: {
-    host: process.env.RABBITMQ_HOST,
-    port: process.env.RABBITMQ_PORT,
-    username: process.env.RABBITMQ_USER,
-    password: process.env.RABBITMQ_PASS,
-    targets: {
-      common: {
-        exchangeName: process.env.RABBITMQ_COMMON_EXCHANGE,
-        exchangeType: 'fanout',
-        routingKey: '',
-      },
-    },
-  },
   common: {
     defaultLocale: 'en',
   },

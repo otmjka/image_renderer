@@ -45,31 +45,6 @@ spec:
                 secretKeyRef:
                   name: database
                   key: password
-            - name: RABBITMQ_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: common
-                  key: rabbitmq-host
-            - name: RABBITMQ_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: common
-                  key: rabbitmq-port
-            - name: RABBITMQ_USER
-              valueFrom:
-                secretKeyRef:
-                  name: rabbitmq
-                  key: username
-            - name: RABBITMQ_PASS
-              valueFrom:
-                secretKeyRef:
-                  name: rabbitmq
-                  key: password
-            - name: RABBITMQ_COMMON_EXCHANGE
-              valueFrom:
-                configMapKeyRef:
-                  name: amqp
-                  key: common-exchange
             - name: SENTRY_DSN
               valueFrom:
                 secretKeyRef:

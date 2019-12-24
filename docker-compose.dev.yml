@@ -12,15 +12,3 @@ services:
       MYSQL_PASSWORD: wuway
       MYSQL_DATABASE: wuway
       MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-  rabbitmq:
-    image: rabbitmq:3-management
-    restart: always
-    expose:
-      - '15672'
-      - '5672'
-    ports:
-      - '5672:5672'
-      - '15672:15672'
-    environment:
-      RABBITMQ_DEFAULT_USER: wuway
-      RABBITMQ_DEFAULT_PASS: wuway

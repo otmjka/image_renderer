@@ -1,6 +1,5 @@
 import * as Sentry from '@sentry/node';
 import db from './common/db';
-import amqpChannel from './common/amqpChannel';
 import app from './app';
 import config from './config';
 
@@ -17,13 +16,6 @@ main();
 
 // doesn't work, TODO: check why
 process.on('SIGTERM', async () => {
-  // eslint-disable-next-line no-console
-  console.log('Closing amqp connection..');
-  const ch = await amqpChannel;
-  if (!ch.closed) {
-    await ch.close();
-    await ch.connection.close();
-  }
   // eslint-disable-next-line no-console
   console.log('Closing database connection..');
   await db.sequelize.close();

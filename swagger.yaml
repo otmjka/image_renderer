@@ -75,10 +75,3 @@ components:
           - asc
           - desc
         default: asc
-  securitySchemes:
-    oAuth2ClientCredentials:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: https://wuway.eu.auth0.com/oauth/token
-          scopes:

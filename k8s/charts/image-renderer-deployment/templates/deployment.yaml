@@ -32,21 +32,6 @@ spec:
                   name: sentry
                   key: image-renderer-dsn
                   optional: true
-            - name: TOKEN_ISSUER
-              valueFrom:
-                configMapKeyRef:
-                  name: auth0
-                  key: issuer
-            - name: TOKEN_CERTS_URI
-              valueFrom:
-                configMapKeyRef:
-                  name: auth0
-                  key: certs-uri
-            - name: TOKEN_AUDIENCE
-              valueFrom:
-                configMapKeyRef:
-                  name: auth0
-                  key: image-renderer-audience
           livenessProbe:
             httpGet:
               path: /healthz

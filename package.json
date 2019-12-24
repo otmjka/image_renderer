@@ -32,9 +32,7 @@
     "intl-messageformat": "^7.6.1",
     "joi": "^13.1.0",
     "jwks-rsa": "^1.6.0",
-    "locale": "^0.1.0",
-    "mysql2": "^1.5.1",
-    "sequelize": "^4.31.0"
+    "locale": "^0.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

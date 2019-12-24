@@ -1,5 +1,4 @@
 import * as Sentry from '@sentry/node';
-import db from './common/db';
 import app from './app';
 import config from './config';
 
@@ -13,10 +12,3 @@ async function main() {
   app.listen(port, () => console.log(`Listening on port ${port}.`));
 }
 main();
-
-// doesn't work, TODO: check why
-process.on('SIGTERM', async () => {
-  // eslint-disable-next-line no-console
-  console.log('Closing database connection..');
-  await db.sequelize.close();
-});

@@ -37,26 +37,13 @@ jobs:
   test:
     docker:
       - image: circleci/node:12-stretch
-      - image: circleci/mariadb:10.1-ram
-        environment:
-          MYSQL_DATABASE: test
-          MYSQL_ROOT_HOST: "%"
-          MYSQL_ALLOW_EMPTY_PASSWORD: "true"
     environment:
       NODE_ENV: development
-      DATABASE_HOST: 127.0.0.1
-      DATABASE_PORT: 3306
-      DATABASE_USER: root
-      DATABASE_PASSWORD: ""
-      DATABASE_NAME: test
     steps:
       - checkout
       - run:
           name: Install
           command: "yarn"
-      - run:
-          name: "Wait for database to be available"
-          command: "dockerize -wait tcp://127.0.0.1:3306 -timeout 1m"
       - run:
           name: "Lint code"
           command: "yarn lint"

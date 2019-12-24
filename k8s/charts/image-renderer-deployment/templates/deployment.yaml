@@ -26,25 +26,6 @@ spec:
             - name: web
               containerPort: {{ .Values.service.webPort }}
           env:
-            - name: DATABASE_HOST
-              value: 127.0.0.1
-            - name: DATABASE_PORT
-              value: '3306'
-            - name: DATABASE_NAME
-              valueFrom:
-                configMapKeyRef:
-                  name: common
-                  key: database-name
-            - name: DATABASE_USER
-              valueFrom:
-                secretKeyRef:
-                  name: database
-                  key: username
-            - name: DATABASE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: database
-                  key: password
             - name: SENTRY_DSN
               valueFrom:
                 secretKeyRef:

@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Wuway Image Renderer
+name: image-renderer-service
+version: 0.1.0

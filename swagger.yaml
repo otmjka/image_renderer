@@ -1,11 +1,11 @@
 openapi: "3.0.0"
 info:
   version: 1.0.0
-  title: Base Service
+  title: Image Renderer
 servers:
-  - url: https://core.api.voypost.com
+  - url: https://image-renderer.api.wuway.com
     description: Production
-  - url: https://core.api.staging.voypost.com
+  - url: https://image-renderer.api.staging.wuway.com
     description: Staging
 paths:
 components:
@@ -80,5 +80,5 @@ components:
       type: oauth2
       flows:
         clientCredentials:
-          tokenUrl: https://voypost.eu.auth0.com/oauth/token
+          tokenUrl: https://wuway.eu.auth0.com/oauth/token
           scopes:

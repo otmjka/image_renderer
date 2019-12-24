@@ -8,9 +8,9 @@ services:
     ports:
       - '3306:3306'
     environment:
-      MYSQL_USER: voypost
-      MYSQL_PASSWORD: voypost
-      MYSQL_DATABASE: voypost
+      MYSQL_USER: wuway
+      MYSQL_PASSWORD: wuway
+      MYSQL_DATABASE: wuway
       MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
   rabbitmq:
     image: rabbitmq:3-management
@@ -22,5 +22,5 @@ services:
       - '5672:5672'
       - '15672:15672'
     environment:
-      RABBITMQ_DEFAULT_USER: voypost
-      RABBITMQ_DEFAULT_PASS: voypost
+      RABBITMQ_DEFAULT_USER: wuway
+      RABBITMQ_DEFAULT_PASS: wuway

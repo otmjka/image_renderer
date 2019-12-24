@@ -1,14 +1,14 @@
 image:
-  repository: gcr.io/voypost-246312/base-service
+  repository: gcr.io/wuway-260614/image-renderer
   command: ["yarn serve"]
 ingress:
   enable: true
   tls: true
-  hostName: base-service.staging.voypost.com
+  hostName: image-renderer.api.staging.wuway.com
   annotations:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
 livenessProbe:
   enabled: true
 cloudSql:
-  instanceConnectionName: voypost-staging:europe-west3:voypost
+  instanceConnectionName: wuway-staging:europe-west3:wuway

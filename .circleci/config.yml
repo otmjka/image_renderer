@@ -71,8 +71,8 @@ jobs:
   docker_build:
     <<: *docker_ci
     environment:
-      REPO: gcr.io/voypost-260614/base-service
-      GOOGLE_PROJECT_ID: voypost-staging
+      REPO: gcr.io/wuway-260614/image-renderer
+      GOOGLE_PROJECT_ID: wuway-staging
       GOOGLE_COMPUTE_ZONE: europe-west3-a
     steps:
       - attach_workspace:
@@ -95,16 +95,16 @@ jobs:
     <<: *deploy_app
     environment:
       ENV: prod
-      GOOGLE_PROJECT_ID: voypost-260614
-      CLUSTER_NAME: voypost
+      GOOGLE_PROJECT_ID: wuway-260614
+      CLUSTER_NAME: wuway
       GOOGLE_COMPUTE_ZONE: europe-west3-a
 
   deploy_staging:
     <<: *deploy_app
     environment:
       ENV: staging
-      GOOGLE_PROJECT_ID: voypost-staging
-      CLUSTER_NAME: voypost
+      GOOGLE_PROJECT_ID: wuway-staging
+      CLUSTER_NAME: wuway
       GOOGLE_COMPUTE_ZONE: europe-west3-a
 
 workflows:

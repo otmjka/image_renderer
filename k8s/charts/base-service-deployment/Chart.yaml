@@ -1,4 +1,0 @@
-apiVersion: v1
-description: Base Service Deployment
-name: base-service-deployment
-version: 0.1.0

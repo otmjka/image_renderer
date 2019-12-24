@@ -1,9 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "base-service-deployment.fullname" . }}
+  name: {{ template "image-renderer-deployment.fullname" . }}
   labels:
-    app: {{ template "base-service-deployment.fullname" . }}
+    app: {{ template "image-renderer-deployment.fullname" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "base-service-deployment.fullname" . }}
+        app: {{ template "image-renderer-deployment.fullname" . }}
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
         release: "{{ .Release.Name }}"
         heritage: "{{ .Release.Service }}"
@@ -74,7 +74,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: sentry
-                  key: base-service-dsn
+                  key: image-renderer-dsn
                   optional: true
             - name: TOKEN_ISSUER
               valueFrom:
@@ -90,7 +90,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: auth0
-                  key: base-service-audience
+                  key: image-renderer-audience
           livenessProbe:
             httpGet:
               path: /healthz

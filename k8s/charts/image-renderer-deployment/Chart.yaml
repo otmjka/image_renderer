@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Image Renderer Deployment
+name: image-renderer-deployment
+version: 0.1.0

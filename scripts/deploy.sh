@@ -6,23 +6,23 @@ fi
 
 cd "$(dirname "$0")"
 
-rm -rf ../k8s/generated_manifests/base-service-deployment
+rm -rf ../k8s/generated_manifests/image-renderer-deployment
 helm template \
-  --name base-service-deployment \
+  --name image-renderer-deployment \
   --output-dir ../k8s/generated_manifests \
   --values ../k8s/values/${ENV}.yaml \
-  --set nameOverride=base-service \
+  --set nameOverride=image-renderer \
   --set-string image.tag=${TAG_NAME} \
-../k8s/charts/base-service-deployment
+../k8s/charts/image-renderer-deployment
 
-rm -rf ../k8s/generated_manifests/base-service-service
+rm -rf ../k8s/generated_manifests/image-renderer-service
 helm template \
-  --name base-service-service \
+  --name image-renderer-service \
   --output-dir ../k8s/generated_manifests \
   --values ../k8s/values/${ENV}.yaml \
-  --set nameOverride=base-service \
+  --set nameOverride=image-renderer \
   --set-string image.tag=${TAG_NAME} \
-../k8s/charts/base-service-service
+../k8s/charts/image-renderer-service
 
-kubectl apply --recursive -f ../k8s/generated_manifests/base-service-deployment
-kubectl apply --recursive -f ../k8s/generated_manifests/base-service-service
+kubectl apply --recursive -f ../k8s/generated_manifests/image-renderer-deployment
+kubectl apply --recursive -f ../k8s/generated_manifests/image-renderer-service

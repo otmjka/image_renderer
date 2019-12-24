@@ -6,7 +6,7 @@ metadata:
   annotations:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
 {{- end }}
-  name: {{ template "base-service-service.fullname" . }}
+  name: {{ template "image-renderer-service.fullname" . }}
 spec:
   rules:
   - host: {{ .Values.ingress.hostName | quote }}
@@ -14,11 +14,11 @@ spec:
       paths:
         - path: /
           backend:
-            serviceName: {{ template "base-service-service.fullname" . }}
+            serviceName: {{ template "image-renderer-service.fullname" . }}
             servicePort: {{ .Values.service.webPort }}
   {{- if .Values.ingress.tls }}
   tls:
-    - secretName: '{{ template "base-service-service.fullname" . }}-secret'
+    - secretName: '{{ template "image-renderer-service.fullname" . }}-secret'
       hosts:
         - {{ .Values.ingress.hostName | quote }}
   {{- end -}}

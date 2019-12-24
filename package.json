@@ -1,8 +1,8 @@
 {
-  "name": "base-service",
+  "name": "image-renderer",
   "version": "0.1.0",
-  "description": "Voypost Base Service",
-  "repository": "git@bitbucket.org:voypost/base-service.git",
+  "description": "Wuway Image Renderer",
+  "repository": "git@github.com:blind-feed/image-renderer.git",
   "author": "Nikita Sviridenko <nikita.sviridenko@voypost.com>",
   "license": "UNLICENSED",
   "engines": {

@@ -1,4 +1,4 @@
-# Base Service
+# Image Renderer
 
 ## Getting started
 
@@ -21,13 +21,13 @@ yarn start
 Build **for local environment**:
 
 ```bash
-$ docker build -t base-service:dev --network="host" \
+$ docker build -t image-renderer:dev --network="host" \
 --build-arg NODE_ENV=development \
 --build-arg RUN_ESLINT=true \
 --build-arg RUN_JEST=true \
 --build-arg DATABASE_HOST=127.0.0.1 \
 --build-arg DATABASE_PORT=3306 \
---build-arg DATABASE_NAME=voypost \
+--build-arg DATABASE_NAME=wuway \
 --build-arg DATABASE_USER=root \
 --build-arg DATABASE_PASSWORD= \
 .

@@ -1,5 +1,5 @@
 import userWeeklyDigestAction from './userWeeklyDigestAction';
-import wrapAsyncHandler from './wrapAsyncHandler';
+import wrapAsyncHandler from '../common/wrapAsyncHandler';
 
 export default function routes(app) {
   // TODO: add `celebrate` middleware to validate query

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="650px" height="156px" viewBox="0 0 650 156" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>Group 24</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M6,0 L54,0 C57.3137085,-6.08718376e-16 60,2.6862915 60,6 L60,82 C60,85.3137085 57.3137085,88 54,88 L6,88 C2.6862915,88 4.05812251e-16,85.3137085 0,82 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="path-1"></path>
+        <path d="M6,0 L54,0 C57.3137085,-6.08718376e-16 60,2.6862915 60,6 L60,82 C60,85.3137085 57.3137085,88 54,88 L6,88 C2.6862915,88 4.05812251e-16,85.3137085 0,82 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="path-3"></path>
+        <path d="M6,0 L54,0 C57.3137085,-6.08718376e-16 60,2.6862915 60,6 L60,82 C60,85.3137085 57.3137085,88 54,88 L6,88 C2.6862915,88 4.05812251e-16,85.3137085 0,82 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="path-5"></path>
+        <path d="M6,0 L54,0 C57.3137085,-6.08718376e-16 60,2.6862915 60,6 L60,82 C60,85.3137085 57.3137085,88 54,88 L6,88 C2.6862915,88 4.05812251e-16,85.3137085 0,82 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="path-7"></path>
+        <path d="M6,0 L54,0 C57.3137085,-6.08718376e-16 60,2.6862915 60,6 L60,82 C60,85.3137085 57.3137085,88 54,88 L6,88 C2.6862915,88 4.05812251e-16,85.3137085 0,82 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="path-9"></path>
+        <path d="M6,0 L54,0 C57.3137085,-6.08718376e-16 60,2.6862915 60,6 L60,82 C60,85.3137085 57.3137085,88 54,88 L6,88 C2.6862915,88 4.05812251e-16,85.3137085 0,82 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="path-11"></path>
+        <path d="M6,0 L54,0 C57.3137085,-6.08718376e-16 60,2.6862915 60,6 L60,82 C60,85.3137085 57.3137085,88 54,88 L6,88 C2.6862915,88 4.05812251e-16,85.3137085 0,82 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="path-13"></path>
+    </defs>
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="7.01-Email-Digest" transform="translate(-408.000000, -957.000000)">
+            <g id="browser">
+                <path d="M8,0 L1442,0 C1446.41828,-8.11624501e-16 1450,3.581722 1450,8 L1450,1867 C1450,1871.41828 1446.41828,1875 1442,1875 L8,1875 C3.581722,1875 5.41083001e-16,1871.41828 0,1867 L0,8 C-2.31743984e-15,3.581722 3.581722,8.11624501e-16 8,0 Z" id="window" fill="#FFFFFF"></path>
+                <g id="Group-6" transform="translate(299.000000, 230.000000)">
+                    <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="867" height="1645"></rect>
+                    <g id="Group-5" transform="translate(109.000000, 686.000000)">
+                        <g id="Group-25">
+                            <g id="Group-24" transform="translate(0.000000, 41.000000)">
+                                <!-- grey wrapper-->
+                                <path d="M8,0 L642,0 C646.418278,-8.11624501e-16 650,3.581722 650,8 L650,148 C650,152.418278 646.418278,156 642,156 L8,156 C3.581722,156 5.41083001e-16,152.418278 0,148 L0,8 C-5.41083001e-16,3.581722 3.581722,8.11624501e-16 8,0 Z" id="Rectangle" fill="#F7F8FA"></path>
+                                <!-- 0-->
+                                <g id="Group-13" transform="translate(34.000000, 20.000000)">
+                                    <text id="M" font-family="Helvetica" font-size="13" font-weight="normal" fill="#6D747C">
+                                        <tspan x="23.5854492" y="111">M</tspan>
+                                    </text>
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-1"></use>
+                                    <g id="Group-23" mask="url(#mask-2)">
+                                        <!-- 2 green -->
+                                        <polygon id="Rectangle" fill="<%= days[0][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[0][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[0][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[0][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[0][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Group-13" transform="translate(121.000000, 20.000000)">
+                                    <text id="T" font-family="Helvetica" font-size="13" font-weight="normal" fill="#6D747C">
+                                        <tspan x="25.029541" y="111">T</tspan>
+                                    </text>
+                                    <mask id="mask-4" fill="white">
+                                        <use xlink:href="#path-3"></use>
+                                    </mask>
+                                    <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-3"></use>
+                                    <g id="Group-23" mask="url(#mask-4)">
+                                        <polygon id="Rectangle" fill="<%= days[1][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[1][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[1][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[1][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[1][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                    </g>
+                                </g>
+                                <!-- 2 -->
+                                <g id="Group-13" transform="translate(208.000000, 20.000000)">
+                                    <text id="W" font-family="Helvetica" font-size="13" font-weight="normal" fill="#6D747C">
+                                        <tspan x="22.8649902" y="111">W</tspan>
+                                    </text>
+                                    <mask id="mask-6" fill="white">
+                                        <use xlink:href="#path-5"></use>
+                                    </mask>
+                                    <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-5"></use>
+                                    <g id="Group-23" mask="url(#mask-6)">
+                                        <polygon id="Rectangle" fill="<%= days[2][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[2][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[2][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[2][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[2][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                    </g>
+                                </g>
+                                <!-- 3 -->
+                                <g id="Group-13" transform="translate(295.000000, 20.000000)">
+                                    <text id="T" font-family="Helvetica" font-size="13" font-weight="normal" fill="#6D747C">
+                                        <tspan x="25.029541" y="111">T</tspan>
+                                    </text>
+                                    <mask id="mask-8" fill="white">
+                                        <use xlink:href="#path-7"></use>
+                                    </mask>
+                                    <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-7"></use>
+                                    <g id="Group-23" mask="url(#mask-8)">
+                                        <polygon id="Rectangle" fill="<%= days[3][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[3][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[3][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[3][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[3][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                    </g>
+                                </g>
+                                <!-- 4 -->
+                                <g id="Group-13" transform="translate(382.000000, 20.000000)">
+                                    <text id="F" font-family="Helvetica" font-size="13" font-weight="normal" fill="#6D747C">
+                                        <tspan x="25.029541" y="111">F</tspan>
+                                    </text>
+                                    <mask id="mask-10" fill="white">
+                                        <use xlink:href="#path-9"></use>
+                                    </mask>
+                                    <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-9"></use>
+                                    <g id="Group-23" mask="url(#mask-10)">
+                                        <polygon id="Rectangle" fill="<%= days[4][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[4][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[4][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[4][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[4][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                    </g>
+                                </g>
+                                <!-- 5 -->
+                                <g id="Group-13" transform="translate(469.000000, 20.000000)">
+                                    <text id="S" font-family="Helvetica" font-size="13" font-weight="normal" fill="#6D747C">
+                                        <tspan x="25" y="111">S</tspan>
+                                    </text>
+                                    <mask id="mask-12" fill="white">
+                                        <use xlink:href="#path-11"></use>
+                                    </mask>
+                                    <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-11"></use>
+                                    <g id="Group-23" mask="url(#mask-12)">
+                                        <polygon id="Rectangle" fill="<%= days[5][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[5][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[5][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[5][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[5][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                    </g>
+                                </g>
+                                <!-- 6 -->
+                                <g id="Group-13" transform="translate(556.000000, 20.000000)">
+                                    <text id="S" font-family="Helvetica" font-size="13" font-weight="normal" fill="#6D747C">
+                                        <tspan x="25" y="111">S</tspan>
+                                    </text>
+                                    <mask id="mask-14" fill="white">
+                                        <use xlink:href="#path-13"></use>
+                                    </mask>
+                                    <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-13"></use>
+                                    <g id="Group-23" mask="url(#mask-14)">
+                                        <polygon id="Rectangle" fill="<%= days[6][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[6][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[6][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[6][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
+                                        <polygon id="Rectangle" fill="<%= days[6][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

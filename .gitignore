@@ -11,3 +11,4 @@ yarn-error.log
 
 k8s/generated_manifests/*
 !k8s/generated_manifests/.gitkeep
+.DS_Store

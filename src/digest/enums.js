@@ -39,18 +39,41 @@ const DEFAULT_DAYS = [
 const DEFAULT_COLOR = colors.black;
 
 const WEEK_DIGEST_TEMPLATE = 'userWeeklyDigestTemplate.svg';
+const PROGRESS_BAR = 'userCompanyRatingInsights.svg';
+const WEEK_DIGEST_TEMPLATE_COUNTER = 'userWeeklyDigestCounterTemplate.svg';
 
-const JPG_QUALITY = { format: 'jpg', quality: 100 };
-const JPG_HEADERS = {
-  'Content-Type': 'image/jpeg',
-  'Content-Disposition': 'attachment; filename=user-weekly-digest.jpg',
+const JPG_QUALITY = { format: 'png', quality: 100 };
+// const JPG_QUALITY = { format: 'jpg', quality: 100 };
+// const JPG_HEADERS_WDC = {
+//   'Content-Type': 'image/jpg',
+//   'Content-Disposition': 'attachment; filename=user-weekly-digest-counter.jpg',
+// };
+// const JPG_HEADERS_PB = {
+//   'Content-Type': 'image/jpeg',
+//   'Content-Disposition': 'attachment; filename=user-rating-insights.jpg',
+// };
+const JPG_HEADERS_WDC = {
+  'Content-Type': 'image/png',
+  'Content-Disposition': 'attachment; filename=user-weekly-digest-counter.png',
+};
+const JPG_HEADERS_PB = {
+  'Content-Type': 'image/png',
+  'Content-Disposition': 'attachment; filename=user-rating-insights.png',
+};
+const JPG_HEADERS_WD = {
+  'Content-Type': 'image/png',
+  'Content-Disposition': 'attachment; filename=user-weekly-digest.png',
 };
 
 export {
   COLOR_MAPPING,
   WEEK_DIGEST_TEMPLATE,
+  PROGRESS_BAR,
   DEFAULT_COLOR,
   JPG_QUALITY,
-  JPG_HEADERS,
+  JPG_HEADERS_WDC,
+  JPG_HEADERS_WD,
+  JPG_HEADERS_PB,
   DEFAULT_DAYS,
+  WEEK_DIGEST_TEMPLATE_COUNTER,
 };

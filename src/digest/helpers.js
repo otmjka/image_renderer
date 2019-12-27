@@ -2,10 +2,11 @@ import fs from 'fs';
 import path from 'path';
 
 import {
-  DEFAULT_COLOR,
-  WEEK_DIGEST_TEMPLATE,
   COLOR_MAPPING,
   DEFAULT_DAYS,
+  PROGRESS_BAR,
+  WEEK_DIGEST_TEMPLATE,
+  WEEK_DIGEST_TEMPLATE_COUNTER,
 } from './enums';
 
 function readTemplate() {
@@ -21,14 +22,40 @@ function readTemplate() {
   return str;
 }
 
+function readTemplateCounter() {
+  const filepath = path.join(__dirname, WEEK_DIGEST_TEMPLATE_COUNTER);
+  let str;
+  try {
+    str = fs.readFileSync(filepath, 'utf8');
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log(err);
+    str = 'error';
+  }
+  return str;
+}
+
+function readTemplateProgress() {
+  const filepath = path.join(__dirname, PROGRESS_BAR);
+  let str;
+  try {
+    str = fs.readFileSync(filepath, 'utf8');
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log(err);
+    str = 'error';
+  }
+  return str;
+}
+
 function makeColorList(amountRaw, colorRaw) {
-  const amount = parseInt(amountRaw, 10);
+  const amount = parseInt(1, 10);
   const color = parseInt(colorRaw, 10);
   if (!amount || (color !== 0 && !color)) {
     return [];
   }
   // eslint-disable-next-line arrow-parens
-  const getColor = (c) => COLOR_MAPPING[c] || DEFAULT_COLOR;
+  const getColor = (c) => COLOR_MAPPING[c];
   const result = [];
   let i = 0;
   while (i < amount) {
@@ -42,7 +69,23 @@ function calculateDayMatrix(amountColonColor) {
   const dayColorsReducer = (acc, currentValue) => {
     const [amount, color] = currentValue.split(':');
     const colors = makeColorList(amount, color);
-
+    let summaryOfCoef = 0;
+    // eslint-disable-next-line operator-assignment
+    amountColonColor.forEach((index) => { summaryOfCoef = summaryOfCoef + Number(index[0]); });
+    const coef = 100 / summaryOfCoef;
+    const oldColorArray = [...acc, ...colors];
+    const newColorArray = [];
+    oldColorArray.forEach((index, i) => {
+      if (amountColonColor[i]) {
+        newColorArray.push({
+          color: index.color ? index.color : index,
+          coef: Number(amountColonColor[i][0]) * coef,
+        });
+      }
+    });
+    if (amountColonColor.length === newColorArray.length) {
+      return newColorArray;
+    }
     return [...acc, ...colors];
   };
   const init = [];
@@ -50,18 +93,18 @@ function calculateDayMatrix(amountColonColor) {
   return dayColors;
 }
 
-function isValid(dayMatrix) {
-  if (dayMatrix.length !== 7) {
-    return false;
-  }
-  let result = true;
-  dayMatrix.forEach((d) => {
-    if (d.length !== 5) {
-      result = false;
-    }
-  });
-  return result;
-}
+// function isValid(dayMatrix) {
+//   if (dayMatrix.length !== 7) {
+//     return false;
+//   }
+//   let result = true;
+//   dayMatrix.forEach((d) => {
+//     if (d.length !== 5) {
+//       result = false;
+//     }
+//   });
+//   return result;
+// }
 
 function getMappedDays(queryDays) {
   let dayMatrix;
@@ -71,9 +114,9 @@ function getMappedDays(queryDays) {
       return calculateDayMatrix(amountColonColor);
     });
 
-    if (!isValid(dayMatrix)) {
-      return DEFAULT_DAYS;
-    }
+    // if (!isValid(dayMatrix)) {
+    //   return DEFAULT_DAYS;
+    // }
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log(err);
@@ -82,4 +125,20 @@ function getMappedDays(queryDays) {
   return dayMatrix;
 }
 
-export { readTemplate, getMappedDays };
+
+function getRate(rates) {
+  let ratesArray = [];
+  ratesArray = rates.map((d) => {
+    const amountColonColor = d.split(',');
+    const newRecordObject = {
+      width: Number(amountColonColor[0]),
+      color: COLOR_MAPPING[Number(amountColonColor[1])],
+    };
+    return newRecordObject;
+  });
+  return ratesArray;
+}
+
+export {
+  readTemplateProgress, readTemplate, getMappedDays, getRate, readTemplateCounter,
+};

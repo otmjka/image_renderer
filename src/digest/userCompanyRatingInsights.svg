@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="366px" height="25px" viewBox="0 0 366 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>Group 16</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="366" height="25" rx="6"></rect>
+    </defs>
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.02-Company-Profile---Unlocked-(Dashboard)" transform="translate(-215.000000, -1231.000000)">
+            <g id="Group-17" transform="translate(135.000000, 973.000000)">
+                <path d="M14,0 L1156,0 C1163.73199,-1.42034288e-15 1170,6.2680135 1170,14 L1170,1176 C1170,1183.73199 1163.73199,1190 1156,1190 L14,1190 C6.2680135,1190 9.46895252e-16,1183.73199 0,1176 L0,14 C2.60581843e-15,6.2680135 6.2680135,1.42034288e-15 14,0 Z" id="Rectangle" fill="#FFFFFF"></path>
+                <g id="Group-33" transform="translate(40.000000, 162.000000)">
+                    <rect id="Rectangle" fill="#F7F8FA" x="0" y="0" width="1090" height="568" rx="8"></rect>
+                    <g id="Group-16" transform="translate(40.000000, 96.000000)">
+                        <g id="Group-10">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Rectangle" fill="#EDEFF2" xlink:href="#path-1"></use>
+
+                            <rect id="Rectangle" fill="<%=arrayRatings[0].color%>" mask="url(#mask-2)" x="0" y="0" width="<%= 366 *  arrayRatings[0].width%>" height="25"></rect>
+                            <text id="5%" mask="url(#mask-2)" font-family="Helvetica" font-size="10" font-weight="normal" line-spacing="13" fill="#FFFFFF">
+                                <tspan x="<%= (366 *  arrayRatings[0].width)/2-10%>" y="16.125"><%= arrayRatings[0].width*100%>%</tspan>
+                            </text>
+                            <rect id="Rectangle" fill="<%= arrayRatings[1].color%>" mask="url(#mask-2)" x="<%= 366 *  arrayRatings[0].width%>" y="0" width="<%= 366 *  arrayRatings[1].width%>" height="25"></rect>
+                            <text id="10%" mask="url(#mask-2)" font-family="Helvetica" font-size="10" font-weight="normal" line-spacing="13" fill="#FFFFFF">
+                                <tspan x="<%= (366 *  arrayRatings[1].width)/2 + (366 *  arrayRatings[0].width) -10%>" y="16.125"><%= arrayRatings[1].width !== 0 ? arrayRatings[1].width * 100 + '%' : ' ' %></tspan>
+                            </text>
+                            <rect id="Rectangle" fill="<%= arrayRatings[2].color%>" mask="url(#mask-2)" x="<%= 366 *  arrayRatings[1].width + 366 *  arrayRatings[0].width %>" y="0" width="<%= 366 *  arrayRatings[2].width%>" height="25"></rect>
+                            <text id="10%" mask="url(#mask-2)" font-family="Helvetica" font-size="10" font-weight="normal" line-spacing="13" fill="#FFFFFF">
+                                <tspan x="<%= (366 *  arrayRatings[1].width) + (366 *  arrayRatings[0].width) + (366 * arrayRatings[2].width )/2 -10 %>" y="16.125"><%= arrayRatings[2].width !==0 ? arrayRatings[2].width * 100 + '%' : ' ' %></tspan>
+                            </text>
+                            <rect display="none" id="Rectangle" fill="<%= arrayRatings[3].color%>" mask="url(#mask-2)" x="<%= 366 *  arrayRatings[2].width +  366 *  arrayRatings[1].width + 366 *  arrayRatings[0].width%>" y="0" width="<%= 366 *  arrayRatings[3].width%>" height="25"></rect>
+                            <text id="25%" mask="url(#mask-2)" font-family="Helvetica" font-size="10" font-weight="normal" line-spacing="13" fill="#FFFFFF">
+                                <tspan x="<%=(366 *  arrayRatings[1].width) +  (366 *  arrayRatings[0].width) + (366 * arrayRatings[2].width )+ (366 * arrayRatings[3].width )/2 -10%>" y="16.125"><%= arrayRatings[3].width !==0  ? arrayRatings[3].width * 100 + '%' : ' ' %></tspan>
+                            </text>
+                            <rect id="Rectangle" fill="<%= arrayRatings[4].color%>" mask="url(#mask-2)" x="<%= 366 *  arrayRatings[3].width + 366 * arrayRatings[0].width + 366 *  arrayRatings[2].width + 366 *  arrayRatings[1].width%>" y="0" width="<%= 366 *  arrayRatings[4].width%>" height="25"></rect>
+                            <text id="50%" mask="url(#mask-2)" font-family="Helvetica" font-size="10" font-weight="normal" line-spacing="13" fill="#FFFFFF">
+                                <tspan x="<%=(366 *  arrayRatings[1].width) +  (366 *  arrayRatings[0].width) + (366 * arrayRatings[2].width )+ (366 * arrayRatings[3].width )+ (366 * arrayRatings[4].width )/2-10 %>" y="16.125"><%= arrayRatings[4].width !==0 ? arrayRatings[4].width * 100 + '%' : ' ' %></tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+

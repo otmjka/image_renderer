@@ -1,7 +1,7 @@
 import ejs from 'ejs';
 import svg2img from 'svg2img';
 
-import { JPG_QUALITY, JPG_HEADERS } from './enums';
+import { JPG_QUALITY, JPG_HEADERS_WD } from './enums';
 import { readTemplate, getMappedDays } from './helpers';
 
 const str = readTemplate();
@@ -12,7 +12,7 @@ export default async function userWeeklyDigestAction(req, res) {
   const renderedStr = ejs.render(str, { days });
 
   svg2img(renderedStr, JPG_QUALITY, (error, buffer) => {
-    res.writeHead(200, JPG_HEADERS);
+    res.writeHead(200, JPG_HEADERS_WD);
     res.end(buffer);
   });
 }

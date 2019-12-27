@@ -34,11 +34,16 @@
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-1"></use>
                                     <g id="Group-23" mask="url(#mask-2)">
                                         <!-- 2 green -->
-                                        <polygon id="Rectangle" fill="<%= days[0][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[0][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[0][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[0][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[0][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                      <rect id="Rectangle" fill="<%=days[0][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[0][0].coef / 100 %>"></rect>
+            
+                            <rect id="Rectangle" fill="<%= days[0][1] ? days[0][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[0][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[0][1] ? days[0][1].coef : 1) / 100 %>"></rect>
+                           
+                            <rect id="Rectangle" fill="<%= days[0][2] ? days[0][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[0][0].coef / 100 + 87 *  (days[0][1] ? days[0][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[0][2] ? days[0][2].coef : 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%=  days[0][3] ? days[0][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[0][0].coef / 100 +  87 * (days[0][2] ? days[0][2].coef : 1) / 100 + 87 *  (days[0][3] ? days[0][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[0][3] ? days[0][3].coef: 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%= days[0][4] ? days[0][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[0][4] ? days[0][0].coef : 1) / 100 + 87 * (days[0][4] ? days[0][1].coef : 1) / 100 + 87 *  (days[0][4] ? days[0][2].coef : 1) / 100 + 87 * (days[0][4] ? days[0][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[0][4] ? days[0][4].coef : 1) / 100 %>"></rect>
+                            
                                     </g>
                                 </g>
                                 <g id="Group-13" transform="translate(121.000000, 20.000000)">
@@ -50,11 +55,15 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-3"></use>
                                     <g id="Group-23" mask="url(#mask-4)">
-                                        <polygon id="Rectangle" fill="<%= days[1][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[1][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[1][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[1][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[1][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                    <rect id="Rectangle" fill="<%=days[1][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[1][0].coef / 100 %>"></rect>
+            
+                            <rect id="Rectangle" fill="<%= days[1][1] ? days[1][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[1][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[1][1] ? days[1][1].coef : 1) / 100 %>"></rect>
+                           
+                            <rect id="Rectangle" fill="<%= days[1][2] ? days[1][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[1][0].coef / 100 + 87 *  (days[1][1] ? days[1][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[1][2] ? days[1][2].coef : 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%=  days[1][3] ? days[1][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[1][0].coef / 100 +  87 * (days[1][2] ? days[1][2].coef : 1) / 100 + 87 *  (days[1][3] ? days[1][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[1][3] ? days[1][3].coef: 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%= days[1][4] ? days[1][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[1][4] ? days[1][0].coef : 1) / 100 + 87 * (days[1][4] ? days[1][1].coef : 1) / 100 + 87 *  (days[1][4] ? days[1][2].coef : 1) / 100 + 87 * (days[1][4] ? days[1][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[1][4] ? days[1][4].coef : 1) / 100 %>"></rect>
                                     </g>
                                 </g>
                                 <!-- 2 -->
@@ -67,11 +76,15 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-5"></use>
                                     <g id="Group-23" mask="url(#mask-6)">
-                                        <polygon id="Rectangle" fill="<%= days[2][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[2][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[2][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[2][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[2][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                        <rect id="Rectangle" fill="<%=days[2][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[2][0].coef / 100 %>"></rect>
+            
+                            <rect id="Rectangle" fill="<%= days[2][1] ? days[2][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[2][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[2][1] ? days[2][1].coef : 1) / 100 %>"></rect>
+                           
+                            <rect id="Rectangle" fill="<%= days[2][2] ? days[2][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[2][0].coef / 100 + 87 *  (days[2][1] ? days[2][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[2][2] ? days[2][2].coef : 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%=  days[2][3] ? days[2][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[2][0].coef / 100 +  87 * (days[2][2] ? days[2][2].coef : 1) / 100 + 87 *  (days[2][3] ? days[2][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[2][3] ? days[2][3].coef: 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%= days[2][4] ? days[2][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[2][4] ? days[2][0].coef : 1) / 100 + 87 * (days[2][4] ? days[2][1].coef : 1) / 100 + 87 *  (days[2][4] ? days[2][2].coef : 1) / 100 + 87 * (days[2][4] ? days[2][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[2][4] ? days[2][4].coef : 1) / 100 %>"></rect>
                                     </g>
                                 </g>
                                 <!-- 3 -->
@@ -84,11 +97,15 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-7"></use>
                                     <g id="Group-23" mask="url(#mask-8)">
-                                        <polygon id="Rectangle" fill="<%= days[3][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[3][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[3][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[3][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[3][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                            <rect id="Rectangle" fill="<%=days[3][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[3][0].coef / 100 %>"></rect>
+            
+                            <rect id="Rectangle" fill="<%= days[3][1] ? days[3][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[3][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[3][1] ? days[3][1].coef : 1) / 100 %>"></rect>
+                           
+                            <rect id="Rectangle" fill="<%= days[3][2] ? days[3][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[3][0].coef / 100 + 87 *  (days[3][1] ? days[3][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[3][2] ? days[3][2].coef : 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%=  days[3][3] ? days[3][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[3][0].coef / 100 +  87 * (days[3][2] ? days[3][2].coef : 1) / 100 + 87 *  (days[3][3] ? days[3][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[3][3] ? days[3][3].coef: 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%= days[3][4] ? days[3][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[3][4] ? days[3][0].coef : 1) / 100 + 87 * (days[3][4] ? days[3][1].coef : 1) / 100 + 87 *  (days[3][4] ? days[3][2].coef : 1) / 100 + 87 * (days[3][4] ? days[3][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[3][4] ? days[3][4].coef : 1) / 100 %>"></rect>
                                     </g>
                                 </g>
                                 <!-- 4 -->
@@ -101,11 +118,15 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-9"></use>
                                     <g id="Group-23" mask="url(#mask-10)">
-                                        <polygon id="Rectangle" fill="<%= days[4][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[4][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[4][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[4][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[4][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                       <rect id="Rectangle" fill="<%=days[4][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[4][0].coef / 100 %>"></rect>
+            
+                            <rect id="Rectangle" fill="<%= days[4][1] ? days[4][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[4][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[4][1] ? days[4][1].coef : 1) / 100 %>"></rect>
+                           
+                            <rect id="Rectangle" fill="<%= days[4][2] ? days[4][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[4][0].coef / 100 + 87 *  (days[4][1] ? days[4][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[4][2] ? days[4][2].coef : 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%=  days[4][3] ? days[4][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[4][0].coef / 100 +  87 * (days[4][2] ? days[4][2].coef : 1) / 100 + 87 *  (days[4][3] ? days[4][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[4][3] ? days[4][3].coef: 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%= days[4][4] ? days[4][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[4][4] ? days[4][0].coef : 1) / 100 + 87 * (days[4][4] ? days[4][1].coef : 1) / 100 + 87 *  (days[4][4] ? days[4][2].coef : 1) / 100 + 87 * (days[4][4] ? days[4][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[4][4] ? days[4][4].coef : 1) / 100 %>"></rect>
                                     </g>
                                 </g>
                                 <!-- 5 -->
@@ -118,11 +139,15 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-11"></use>
                                     <g id="Group-23" mask="url(#mask-12)">
-                                        <polygon id="Rectangle" fill="<%= days[5][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[5][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[5][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[5][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[5][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
+                                        <rect id="Rectangle" fill="<%=days[5][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[5][0].coef / 100 %>"></rect>
+            
+                            <rect id="Rectangle" fill="<%= days[5][1] ? days[5][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[5][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[5][1] ? days[5][1].coef : 1) / 100 %>"></rect>
+                           
+                            <rect id="Rectangle" fill="<%= days[5][2] ? days[5][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[5][0].coef / 100 + 87 *  (days[5][1] ? days[5][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[5][2] ? days[5][2].coef : 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%=  days[5][3] ? days[5][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[5][0].coef / 100 +  87 * (days[5][2] ? days[5][2].coef : 1) / 100 + 87 *  (days[5][3] ? days[5][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[5][3] ? days[5][3].coef: 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%= days[5][4] ? days[5][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[5][4] ? days[5][0].coef : 1) / 100 + 87 * (days[5][4] ? days[5][1].coef : 1) / 100 + 87 *  (days[5][4] ? days[5][2].coef : 1) / 100 + 87 * (days[5][4] ? days[5][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[5][4] ? days[5][4].coef : 1) / 100 %>"></rect>
                                     </g>
                                 </g>
                                 <!-- 6 -->
@@ -135,12 +160,15 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-13"></use>
                                     <g id="Group-23" mask="url(#mask-14)">
-                                        <polygon id="Rectangle" fill="<%= days[6][0] %>" points="0 3.77822773e-14 60 3.77822773e-14 60 18 0 18"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[6][1] %>" points="0 17 60 17 60 35 0 35"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[6][2] %>" points="0 35 60 35 60 53 0 53"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[6][3] %>" points="0 53 60 53 60 71 0 71"></polygon>
-                                        <polygon id="Rectangle" fill="<%= days[6][4] %>" points="0 70 60 70 60 88 0 88"></polygon>
-                                    </g>
+                                        <rect id="Rectangle" fill="<%=days[6][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[6][0].coef / 100 %>"></rect>
+            
+                            <rect id="Rectangle" fill="<%= days[6][1] ? days[6][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[6][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[6][1] ? days[6][1].coef : 1) / 100 %>"></rect>
+                           
+                            <rect id="Rectangle" fill="<%= days[6][2] ? days[6][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[6][0].coef / 100 + 87 *  (days[6][1] ? days[6][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[6][2] ? days[6][2].coef : 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%=  days[6][3] ? days[6][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[6][0].coef / 100 +  87 * (days[6][2] ? days[6][2].coef : 1) / 100 + 87 *  (days[6][3] ? days[6][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[6][3] ? days[6][3].coef: 1) / 100 %>"></rect>
+                            
+                            <rect id="Rectangle" fill="<%= days[6][4] ? days[6][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[6][4] ? days[6][0].coef : 1) / 100 + 87 * (days[6][4] ? days[6][1].coef : 1) / 100 + 87 *  (days[6][4] ? days[6][2].coef : 1) / 100 + 87 * (days[6][4] ? days[6][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[6][4] ? days[6][4].coef : 1) / 100 %>"></rect>
                                 </g>
                             </g>
                         </g>

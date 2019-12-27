@@ -5,6 +5,8 @@ import apiErrorHandler from 'api-error-handler';
 import * as Sentry from '@sentry/node';
 import commonRoutes from './common/commonRoutes';
 import digestRoutes from './digest/digestRoutes';
+import progressRoutes from './progressBar/progressRoutes';
+import digestCounterRoutes from './weeklyDigestCounter/weeklyDigestRoutes';
 import config from './config';
 
 const app = express();
@@ -15,6 +17,9 @@ app.use(bodyParser.json());
 
 commonRoutes(app);
 digestRoutes(app);
+digestCounterRoutes(app);
+progressRoutes(app);
+
 
 app.use(joiErrors());
 // should be after joi, they also throw exceptions

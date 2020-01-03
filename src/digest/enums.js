@@ -9,12 +9,12 @@ const colors = {
 };
 
 const COLOR_MAPPING = [
-  colors.green, // 0
+  colors.black, // 0
   colors.pink, // 1
-  colors.violet, // 2
-  colors.yellow, // 3
-  colors.gray, // 4
-  colors.black, // 5
+  colors.yellow, // 2
+  colors.gray, // 3
+  colors.violet, // 4
+  colors.green, // 5
   colors.white, // 6
 ];
 

@@ -41,7 +41,7 @@ import createError from 'http-errors';
 return next(createError(400, { code: 'bannedProfileId.invalid' }));
 ```
 
-## Useing example
+## Using example
 
 `src/digest/enums.js`
 
@@ -67,32 +67,16 @@ colors.black, // 5
 colors.white // 6
 ```
 
-### routes
+## Examples
 
-```
-app.get('/proba', (req, res, next) => {
-  res.sendfile(path.join(__dirname, './index.html'));
-});
-```
+Weekly digest:
 
-#### html
+http://localhost:2222/user-weekly-digest.jpg?days[0]=1:0,2:1,1:2,1:3&days[1]=2:0,2:1,1:3&days[2]=5:0&days[3]=4:2,1:3&days[4]=2:5,1:1,1:4,1:3&days[5]=2:5,1:1,1:4,1:3&days[6]=2:5,1:1,1:4,1:3
 
-```
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Моя тестовая страница</title>
-  </head>
-  <body>
-    <img
-      src="/user-weekly-digest.jpg?days[0]=1:0,2:1,1:2,1:3&days[1]=2:0,2:1,1:3&days[2]=5:0&days[3]=4:2,1:3&days[4]=2:5,1:1,1:4,1:3&days[5]=2:5,1:1,1:4,1:3&days[6]=2:5,1:1,1:4,1:3"
-      alt="Моё тестовое изображение"
-    />
-    <img src="/company-rating-insights.jpg?ratings[0]=0.20,1&ratings[1]=0.20,2&ratings[2]=0.20,3&ratings[3]=0.20,4&ratings[4]=0.20,1">
-    <img src="/weekly-digest-counter.jpg?text=42%,42,4,2%">
-  </body>
-</html>
+Rating insights:
 
+http://localhost:2222/company-rating-insights.jpg?ratings[0]=0.20,1&ratings[1]=0.20,2&ratings[2]=0.20,3&ratings[3]=0.20,4&ratings[4]=0.20,1
 
-```
+Counter:
+
+http://localhost:2222/weekly-digest-counter.jpg?text=42%

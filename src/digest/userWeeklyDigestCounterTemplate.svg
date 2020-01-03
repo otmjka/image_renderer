@@ -15,7 +15,7 @@
                                 <path d="M8,0 L642,0 C646.418278,-8.11624501e-16 650,3.581722 650,8 L650,148 C650,152.418278 646.418278,156 642,156 L8,156 C3.581722,156 5.41083001e-16,152.418278 0,148 L0,8 C-5.41083001e-16,3.581722 3.581722,8.11624501e-16 8,0 Z" id="Rectangle" fill="#F7F8FA"></path>
                                 <g id="Group-26" transform="translate(30.000000, 28.000000)">
                                     <path d="M97.4513449,36.4544873 C104.209433,61.7894101 99.5776767,87.6325734 58.2217274,98.7636874 C16.865778,109.894801 -23.9686054,42.9983016 16.9655444,12.9658125 C57.8996942,-17.0666766 90.6932568,11.1195646 97.4513449,36.4544873 Z" id="Path" fill="#FFFFFF"></path>
-                                    <text id="68" x="<%=x%>" y="50%" alignment-baseline="middle" text-anchor="middle"  font-size="34px" font-family="Helvetica" font-weight="normal" fill="#1C1E21"><%= queryText %>
+                                    <text id="68" x="58%" y="50%" alignment-baseline="middle" text-anchor="middle"  font-size="34px" font-family="Poppins" font-weight="bold" fill="#1C1E21"><%= queryText %>
                                         <!-- <tspan x="28.6988252"  font-size="32px" y="60%"><%= queryText %></tspan> -->
                                     </text>
                                 </g>

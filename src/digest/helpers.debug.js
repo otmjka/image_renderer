@@ -1,13 +1,15 @@
-import fs from 'fs';
-import path from 'path';
+// import fs from 'fs';
+// import path from 'path';
 
-import {
+const path = require('path');
+
+const {
   COLOR_MAPPING,
   DEFAULT_DAYS,
   PROGRESS_BAR,
   WEEK_DIGEST_TEMPLATE,
   WEEK_DIGEST_TEMPLATE_COUNTER,
-} from './enums';
+} = require('./enums.debug');
 
 function readTemplate() {
   const filepath = path.join(__dirname, WEEK_DIGEST_TEMPLATE);
@@ -64,8 +66,36 @@ function makeColorList(amountRaw, colorRaw) {
   }
   return result;
 }
+/*
+// [1:2, 1:2, 1:2, 1:2] => [4:2]
+type AmountColonColorType = Array<AmountColonColorString>
+type AmountColonColorString = String // 1:2
 
-function calculateDayMatrix(amountColonColor) {
+calculateDayMatrix(amountColonColor: AmountColonColorType) => Array<DayRecord>
+
+interface DayRecord {
+  color: Color,
+  coef: Number
+}
+
+*/
+function calculateDayMatrix(amountColonColorArray) {}
+
+function groupByColor(amountColonColorArray) {
+  // group by color
+  const reducer = (acc, currentValue) => {
+    console.log(acc, currentValue);
+    const [amountStr, colorStr] = currentValue.split(':');
+    const amount = parseInt(amountStr, 10);
+    const color = parseInt(colorStr, 10);
+    acc[color] = (acc[color] || 0) + amount;
+    return acc;
+  };
+  const dayColors = amountColonColorArray.reduce(reducer, {});
+  return dayColors;
+}
+
+function calculateDayMatrix1(amountColonColor) {
   const dayColorsReducer = (acc, currentValue) => {
     const [amount, color] = currentValue.split(':');
     const colors = makeColorList(amount, color);
@@ -79,9 +109,13 @@ function calculateDayMatrix(amountColonColor) {
     const newColorArray = [];
     oldColorArray.forEach((index, i) => {
       if (amountColonColor[i]) {
+        const curAmount = parseInt(amountColonColor[i].split(':')[0], 10);
+        if (!Number.isInteger(curAmount)) {
+          throw new Error('should be int');
+        }
         newColorArray.push({
           color: index.color ? index.color : index,
-          coef: Number(amountColonColor[i][0]) * coef,
+          coef: curAmount * coef,
         });
       }
     });
@@ -140,10 +174,11 @@ function getRate(rates) {
   return ratesArray;
 }
 
-export {
+module.exports = {
   readTemplateProgress,
   readTemplate,
   getMappedDays,
   getRate,
   readTemplateCounter,
+  calculateDayMatrix,
 };

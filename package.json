@@ -13,7 +13,8 @@
     "start": "babel-watch -L src/index.js",
     "serve": "node lib/index.js",
     "lint": "eslint ./src",
-    "test": "cross-env NODE_ENV=test jest --forceExit --runInBand"
+    "test": "cross-env NODE_ENV=test jest --forceExit --runInBand",
+    "test:watch": "cross-env NODE_ENV=development jest --forceExit --runInBand --watch"
   },
   "dependencies": {
     "@sentry/node": "^5.0.0",
@@ -24,11 +25,13 @@
     "ejs": "^3.0.1",
     "express": "^4.16.2",
     "glob": "^7.1.6",
+    "global": "^4.4.0",
     "http-errors": "^1.6.2",
     "intl-format-cache": "^4.2.11",
     "intl-messageformat": "^7.6.1",
     "joi": "^13.1.0",
     "locale": "^0.1.0",
+    "serve": "^11.3.0",
     "svg2img": "^0.6.1"
   },
   "devDependencies": {

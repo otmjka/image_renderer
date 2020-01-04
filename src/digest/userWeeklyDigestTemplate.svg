@@ -26,29 +26,29 @@
                                 <!-- 0-->
                                 <g id="Group-13" transform="translate(34.000000, 20.000000)">
                                     <text id="M" font-family="Poppins" font-size="13" font-weight="normal" fill="#6D747C">
-                                        <tspan x="23.5854492" y="111">M111</tspan>
+                                        <tspan x="23.5854492" y="111">M</tspan>
                                     </text>
                                     <mask id="mask-2" fill="white">
                                         <use xlink:href="#path-1"></use>
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-1"></use>
                                     <g id="Group-23" mask="url(#mask-2)">
-                                        <% days[0].forEach(function(day, n){ %>
-                                            <% 
-                                                const totalHeight = 88 - 3.77822773e-14
-                                                let start = 0 
-                                                
-                                                let i = 0
-                                                while(i < n) {
-                                                    start += days[0][i].coef
-                                                    i++
-                                                }
-                                                const y = 3.77822773e-14 + start * totalHeight / 100
-                                                const height = totalHeight / 100 * day.coef
-                                                console.log('••••', start, y, height )
-                                            %>
-                                            <rect id="Rectangle" fill="<%= day.color %>" mask="url(#mask-2)" x="0" y="<%= y %>" width="75" height="<%= height %>"></rect>
-                                        <% }); %>
+                                      <% let currentDay = days[0] %>
+                                      <% currentDay.forEach(function(day, n){ %>
+                                          <%
+                                              const totalHeight = 88 - 3.77822773e-14
+                                              let start = 0
+
+                                              let i = 0
+                                              while(i < n) {
+                                                  start += currentDay[i].coef
+                                                  i++
+                                              }
+                                              const y = 3.77822773e-14 + start * totalHeight / 100
+                                              const height = totalHeight / 100 * day.coef
+                                          %>
+                                          <rect id="Rectangle" fill="<%= day.color %>" mask="url(#mask-2)" x="0" y="<%= y %>" width="75" height="<%= height %>"></rect>
+                                      <% }); %>
                                     </g>
                                 </g>
                                 <g id="Group-13" transform="translate(121.000000, 20.000000)">
@@ -60,12 +60,12 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-3"></use>
                                     <g id="Group-23" mask="url(#mask-4)">
-                                        <% const currentDay = days[1]%>
+                                        <% currentDay = days[1] %>
                                         <% currentDay.forEach(function(day, n){ %>
-                                            <% 
+                                            <%
                                                 const totalHeight = 88 - 3.77822773e-14
-                                                let start = 0 
-                                                
+                                                let start = 0
+
                                                 let i = 0
                                                 while(i < n) {
                                                     start += currentDay[i].coef
@@ -88,15 +88,22 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-5"></use>
                                     <g id="Group-23" mask="url(#mask-6)">
-                                        <rect id="Rectangle" fill="<%=days[2][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[2][0].coef / 100 %>"></rect>
+                                      <% currentDay = days[2] %>
+                                      <% currentDay.forEach(function(day, n){ %>
+                                        <%
+                                          const totalHeight = 88 - 3.77822773e-14
+                                          let start = 0
 
-                            <rect id="Rectangle" fill="<%= days[2][1] ? days[2][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[2][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[2][1] ? days[2][1].coef : 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%= days[2][2] ? days[2][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[2][0].coef / 100 + 87 *  (days[2][1] ? days[2][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[2][2] ? days[2][2].coef : 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%=  days[2][3] ? days[2][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[2][0].coef / 100 +  87 * (days[2][2] ? days[2][2].coef : 1) / 100 + 87 *  (days[2][3] ? days[2][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[2][3] ? days[2][3].coef: 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%= days[2][4] ? days[2][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[2][4] ? days[2][0].coef : 1) / 100 + 87 * (days[2][4] ? days[2][1].coef : 1) / 100 + 87 *  (days[2][4] ? days[2][2].coef : 1) / 100 + 87 * (days[2][4] ? days[2][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[2][4] ? days[2][4].coef : 1) / 100 %>"></rect>
+                                          let i = 0
+                                          while(i < n) {
+                                              start += currentDay[i].coef
+                                              i++
+                                          }
+                                          const y = 3.77822773e-14 + start * totalHeight / 100
+                                          const height = totalHeight / 100 * day.coef
+                                        %>
+                                        <rect id="Rectangle" fill="<%= day.color %>" mask="url(#mask-2)" x="0" y="<%= y %>" width="75" height="<%= height %>"></rect>
+                                      <% }); %>
                                     </g>
                                 </g>
                                 <!-- 3 -->
@@ -109,15 +116,22 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-7"></use>
                                     <g id="Group-23" mask="url(#mask-8)">
-                            <rect id="Rectangle" fill="<%=days[3][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[3][0].coef / 100 %>"></rect>
+                                      <% currentDay = days[3] %>
+                                      <% currentDay.forEach(function(day, n){ %>
+                                        <%
+                                          const totalHeight = 88 - 3.77822773e-14
+                                          let start = 0
 
-                            <rect id="Rectangle" fill="<%= days[3][1] ? days[3][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[3][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[3][1] ? days[3][1].coef : 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%= days[3][2] ? days[3][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[3][0].coef / 100 + 87 *  (days[3][1] ? days[3][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[3][2] ? days[3][2].coef : 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%=  days[3][3] ? days[3][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[3][0].coef / 100 +  87 * (days[3][2] ? days[3][2].coef : 1) / 100 + 87 *  (days[3][3] ? days[3][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[3][3] ? days[3][3].coef: 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%= days[3][4] ? days[3][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[3][4] ? days[3][0].coef : 1) / 100 + 87 * (days[3][4] ? days[3][1].coef : 1) / 100 + 87 *  (days[3][4] ? days[3][2].coef : 1) / 100 + 87 * (days[3][4] ? days[3][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[3][4] ? days[3][4].coef : 1) / 100 %>"></rect>
+                                          let i = 0
+                                          while(i < n) {
+                                              start += currentDay[i].coef
+                                              i++
+                                          }
+                                          const y = 3.77822773e-14 + start * totalHeight / 100
+                                          const height = totalHeight / 100 * day.coef
+                                        %>
+                                        <rect id="Rectangle" fill="<%= day.color %>" mask="url(#mask-2)" x="0" y="<%= y %>" width="75" height="<%= height %>"></rect>
+                                      <% }); %>
                                     </g>
                                 </g>
                                 <!-- 4 -->
@@ -130,15 +144,22 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-9"></use>
                                     <g id="Group-23" mask="url(#mask-10)">
-                                       <rect id="Rectangle" fill="<%=days[4][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[4][0].coef / 100 %>"></rect>
+                                      <% currentDay = days[4] %>
+                                      <% currentDay.forEach(function(day, n){ %>
+                                        <%
+                                          const totalHeight = 88 - 3.77822773e-14
+                                          let start = 0
 
-                            <rect id="Rectangle" fill="<%= days[4][1] ? days[4][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[4][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[4][1] ? days[4][1].coef : 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%= days[4][2] ? days[4][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[4][0].coef / 100 + 87 *  (days[4][1] ? days[4][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[4][2] ? days[4][2].coef : 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%=  days[4][3] ? days[4][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[4][0].coef / 100 +  87 * (days[4][2] ? days[4][2].coef : 1) / 100 + 87 *  (days[4][3] ? days[4][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[4][3] ? days[4][3].coef: 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%= days[4][4] ? days[4][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[4][4] ? days[4][0].coef : 1) / 100 + 87 * (days[4][4] ? days[4][1].coef : 1) / 100 + 87 *  (days[4][4] ? days[4][2].coef : 1) / 100 + 87 * (days[4][4] ? days[4][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[4][4] ? days[4][4].coef : 1) / 100 %>"></rect>
+                                          let i = 0
+                                          while(i < n) {
+                                              start += currentDay[i].coef
+                                              i++
+                                          }
+                                          const y = 3.77822773e-14 + start * totalHeight / 100
+                                          const height = totalHeight / 100 * day.coef
+                                        %>
+                                        <rect id="Rectangle" fill="<%= day.color %>" mask="url(#mask-2)" x="0" y="<%= y %>" width="75" height="<%= height %>"></rect>
+                                      <% }); %>
                                     </g>
                                 </g>
                                 <!-- 5 -->
@@ -151,15 +172,22 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-11"></use>
                                     <g id="Group-23" mask="url(#mask-12)">
-                                        <rect id="Rectangle" fill="<%=days[5][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[5][0].coef / 100 %>"></rect>
+                                      <% currentDay = days[5] %>
+                                      <% currentDay.forEach(function(day, n){ %>
+                                        <%
+                                          const totalHeight = 88 - 3.77822773e-14
+                                          let start = 0
 
-                            <rect id="Rectangle" fill="<%= days[5][1] ? days[5][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[5][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[5][1] ? days[5][1].coef : 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%= days[5][2] ? days[5][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[5][0].coef / 100 + 87 *  (days[5][1] ? days[5][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[5][2] ? days[5][2].coef : 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%=  days[5][3] ? days[5][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[5][0].coef / 100 +  87 * (days[5][2] ? days[5][2].coef : 1) / 100 + 87 *  (days[5][3] ? days[5][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[5][3] ? days[5][3].coef: 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%= days[5][4] ? days[5][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[5][4] ? days[5][0].coef : 1) / 100 + 87 * (days[5][4] ? days[5][1].coef : 1) / 100 + 87 *  (days[5][4] ? days[5][2].coef : 1) / 100 + 87 * (days[5][4] ? days[5][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[5][4] ? days[5][4].coef : 1) / 100 %>"></rect>
+                                          let i = 0
+                                          while(i < n) {
+                                              start += currentDay[i].coef
+                                              i++
+                                          }
+                                          const y = 3.77822773e-14 + start * totalHeight / 100
+                                          const height = totalHeight / 100 * day.coef
+                                        %>
+                                        <rect id="Rectangle" fill="<%= day.color %>" mask="url(#mask-2)" x="0" y="<%= y %>" width="75" height="<%= height %>"></rect>
+                                      <% }); %>
                                     </g>
                                 </g>
                                 <!-- 6 -->
@@ -172,15 +200,22 @@
                                     </mask>
                                     <use id="Rectangle" fill="#D8D8D8" xlink:href="#path-13"></use>
                                     <g id="Group-23" mask="url(#mask-14)">
-                                        <rect id="Rectangle" fill="<%=days[6][0].color%>" mask="url(#mask-2)" x="0" y="0" width="75" height="<%= 87 *  days[6][0].coef / 100 %>"></rect>
+                                      <% currentDay = days[6] %>
+                                      <% currentDay.forEach(function(day, n){ %>
+                                        <%
+                                          const totalHeight = 88 - 3.77822773e-14
+                                          let start = 0
 
-                            <rect id="Rectangle" fill="<%= days[6][1] ? days[6][1].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[6][0].coef / 100 %>" x="0" width="75" height="<%= 87 * (days[6][1] ? days[6][1].coef : 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%= days[6][2] ? days[6][2].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[6][0].coef / 100 + 87 *  (days[6][1] ? days[6][1].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[6][2] ? days[6][2].coef : 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%=  days[6][3] ? days[6][3].color : '' %>" mask="url(#mask-2)" y="<%= 87 * days[6][0].coef / 100 +  87 * (days[6][2] ? days[6][2].coef : 1) / 100 + 87 *  (days[6][3] ? days[6][3].coef : 1) / 100 %>" x="0" width="75" height="<%= 87 * (days[6][3] ? days[6][3].coef: 1) / 100 %>"></rect>
-
-                            <rect id="Rectangle" fill="<%= days[6][4] ? days[6][4].color : '' %>" mask="url(#mask-2)" y="<%= 87 * (days[6][4] ? days[6][0].coef : 1) / 100 + 87 * (days[6][4] ? days[6][1].coef : 1) / 100 + 87 *  (days[6][4] ? days[6][2].coef : 1) / 100 + 87 * (days[6][4] ? days[6][3].coef: 1) / 100 %>" x="0" width="75" height="<%= 87 *  (days[6][4] ? days[6][4].coef : 1) / 100 %>"></rect>
+                                          let i = 0
+                                          while(i < n) {
+                                              start += currentDay[i].coef
+                                              i++
+                                          }
+                                          const y = 3.77822773e-14 + start * totalHeight / 100
+                                          const height = totalHeight / 100 * day.coef
+                                        %>
+                                        <rect id="Rectangle" fill="<%= day.color %>" mask="url(#mask-2)" x="0" y="<%= y %>" width="75" height="<%= height %>"></rect>
+                                      <% }); %>
                                 </g>
                             </g>
                         </g>

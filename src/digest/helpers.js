@@ -48,47 +48,14 @@ function readTemplateProgress() {
   return str;
 }
 
-function makeColorList(amountRaw, colorRaw) {
-  const amount = parseInt(amountRaw, 10);
-  const color = parseInt(colorRaw, 10);
-  if (!amount || (color !== 0 && !color)) {
-    return [];
-  }
-  // eslint-disable-next-line arrow-parens
-  const getColor = (c) => COLOR_MAPPING[c];
-  const result = [];
-  let i = 0;
-  while (i < amount) {
-    result.push(getColor(color));
-    i += 1;
-  }
-  return result;
-}
-// amountColonColorArrayRaw ['1:1','4:2','0:3','2:4','1:5']
-// result [{color: "#000", coef: 50}, {color: "#000", coef: 50}]
-function calculateDayMatrix(amountColonColorArrayRaw) {
-  // filter empty amount
-  const amountColonColorArray = amountColonColorArrayRaw.filter((i) => {
-    const [amount] = getAmountColor(i);
-    return amount > 0;
-  });
-  const groupedByColor = groupByColor(amountColonColorArray);
-  const totalCellsAmount = getTotalCellsAmount(groupedByColor);
-  const coef = 100 / totalCellsAmount;
-  const dayMatrix = amountColonColorArray.map((amoutColonColor, n) => {
-    const [amount, colorIndex] = getAmountColor(amoutColonColor);
-    const result = { color: COLOR_MAPPING[colorIndex], coef: coef * amount };
-    return result;
-  });
-  return dayMatrix;
-}
-
-// colorsAmountDict {1:0, 1:1, 1:2} => 3
+// colorsAmountDict {0:1, 1:1, 2:1} => 3
 function getTotalCellsAmount(colorsAmountDict) {
   let acc = 0;
-  for (let color in colorsAmountDict) {
-    acc += colorsAmountDict[color];
-  }
+  const dictToArray = Object.entries(colorsAmountDict);
+  dictToArray.forEach((cell) => {
+    const amount = cell[1];
+    acc += amount;
+  });
 
   return acc;
 }
@@ -119,6 +86,25 @@ function groupByColor(amountColonColorArray) {
   };
   const dayColors = amountColonColorArray.reduce(reducer, {});
   return dayColors;
+}
+
+// amountColonColorArrayRaw ['1:1','4:2','0:3','2:4','1:5']
+// result [{color: "#000", coef: 50}, {color: "#000", coef: 50}]
+function calculateDayMatrix(amountColonColorArrayRaw) {
+  // filter empty amount
+  const amountColonColorArray = amountColonColorArrayRaw.filter((i) => {
+    const [amount] = getAmountColor(i);
+    return amount > 0;
+  });
+  const groupedByColor = groupByColor(amountColonColorArray);
+  const totalCellsAmount = getTotalCellsAmount(groupedByColor);
+  const coef = 100 / totalCellsAmount;
+  const dayMatrix = amountColonColorArray.map((amoutColonColor) => {
+    const [amount, colorIndex] = getAmountColor(amoutColonColor);
+    const result = { color: COLOR_MAPPING[colorIndex], coef: coef * amount };
+    return result;
+  });
+  return dayMatrix;
 }
 
 function getMappedDays(queryDays) {

@@ -80,27 +80,36 @@ interface DayRecord {
 
 */
 function calculateDayMatrix(amountColonColorArray) {
-  const groupedByColor = groupByColor(amountColonColorArray)
-  const totalCellsAmount/*: number */ = getTotalCellsAmount(groupedByColor)
-
+  const groupedByColor = groupByColor(amountColonColorArray);
+  const totalCellsAmount /*: number */ = getTotalCellsAmount(groupedByColor);
+  const coef = 100 / totalCellsAmount;
+  amountColonColorArray.map((amoutColonColor, n) => {
+    const [amount, colorIndex] = getAmountColor(amoutColonColor);
+    result = {color: COLOR_MAPPING[colorIndex], coef: coef * amount}
+    return result
+  });
+  console.log(totalCellsAmount);
 }
 
 function getTotalCellsAmount(colorsAmountDict) {
-  let acc = 0
+  let acc = 0;
   for (let color in colorsAmountDict) {
-    acc += colorsAmountDict[color]
+    acc += colorsAmountDict[color];
   }
 
-  return acc
+  return acc;
 }
-
+function getAmountColor(amountColonColorStr) {
+  const [amountStr, colorStr] = amountColonColorStr.split(':');
+  const amount = parseInt(amountStr, 10);
+  const color = parseInt(colorStr, 10);
+  return [amount, color];
+}
 function groupByColor(amountColonColorArray) {
   // group by color
   const reducer = (acc, currentValue) => {
     console.log(acc, currentValue);
-    const [amountStr, colorStr] = currentValue.split(':');
-    const amount = parseInt(amountStr, 10);
-    const color = parseInt(colorStr, 10);
+    const [amount, color] = getAmountColor(currentValue);
     acc[color] = (acc[color] || 0) + amount;
     return acc;
   };

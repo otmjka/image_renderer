@@ -79,7 +79,20 @@ interface DayRecord {
 }
 
 */
-function calculateDayMatrix(amountColonColorArray) {}
+function calculateDayMatrix(amountColonColorArray) {
+  const groupedByColor = groupByColor(amountColonColorArray)
+  const totalCellsAmount/*: number */ = getTotalCellsAmount(groupedByColor)
+
+}
+
+function getTotalCellsAmount(colorsAmountDict) {
+  let acc = 0
+  for (let color in colorsAmountDict) {
+    acc += colorsAmountDict[color]
+  }
+
+  return acc
+}
 
 function groupByColor(amountColonColorArray) {
   // group by color

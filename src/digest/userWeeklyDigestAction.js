@@ -10,6 +10,7 @@ export default async function userWeeklyDigestAction(req, res) {
   const queryDays = req.query.days;
   console.log(queryDays);
   const days = getMappedDays(queryDays);
+  console.log(days);
   const renderedStr = ejs.render(str, { days });
 
   svg2img(renderedStr, JPG_QUALITY, (error, buffer) => {

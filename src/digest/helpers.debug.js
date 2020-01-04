@@ -79,16 +79,21 @@ interface DayRecord {
 }
 
 */
-function calculateDayMatrix(amountColonColorArray) {
+function calculateDayMatrix(amountColonColorArrayRaw) {
+  // filter empty amount
+  const amountColonColorArray = amountColonColorArrayRaw.filter(i => {
+    const [amount] = getAmountColor(i)
+    return amount > 0
+  })
   const groupedByColor = groupByColor(amountColonColorArray);
   const totalCellsAmount /*: number */ = getTotalCellsAmount(groupedByColor);
   const coef = 100 / totalCellsAmount;
-  amountColonColorArray.map((amoutColonColor, n) => {
+  const dayMatrix = amountColonColorArray.map((amoutColonColor, n) => {
     const [amount, colorIndex] = getAmountColor(amoutColonColor);
-    result = {color: COLOR_MAPPING[colorIndex], coef: coef * amount}
-    return result
+    const result = { color: COLOR_MAPPING[colorIndex], coef: coef * amount };
+    return result;
   });
-  console.log(totalCellsAmount);
+  return dayMatrix;
 }
 
 function getTotalCellsAmount(colorsAmountDict) {
@@ -110,7 +115,9 @@ function groupByColor(amountColonColorArray) {
   const reducer = (acc, currentValue) => {
     console.log(acc, currentValue);
     const [amount, color] = getAmountColor(currentValue);
-    acc[color] = (acc[color] || 0) + amount;
+    if (amount > 0) {
+      acc[color] = (acc[color] || 0) + amount;
+    }
     return acc;
   };
   const dayColors = amountColonColorArray.reduce(reducer, {});

@@ -65,33 +65,46 @@ function makeColorList(amountRaw, colorRaw) {
   return result;
 }
 
-function calculateDayMatrix(amountColonColor) {
-  const dayColorsReducer = (acc, currentValue) => {
-    const [amount, color] = currentValue.split(':');
-    const colors = makeColorList(amount, color);
-    let summaryOfCoef = 0;
-    // eslint-disable-next-line operator-assignment
-    amountColonColor.forEach((index) => {
-      summaryOfCoef = summaryOfCoef + Number(index[0]);
-    });
-    const coef = 100 / summaryOfCoef;
-    const oldColorArray = [...acc, ...colors];
-    const newColorArray = [];
-    oldColorArray.forEach((index, i) => {
-      if (amountColonColor[i]) {
-        newColorArray.push({
-          color: index.color ? index.color : index,
-          coef: Number(amountColonColor[i][0]) * coef,
-        });
-      }
-    });
-    if (amountColonColor.length === newColorArray.length) {
-      return newColorArray;
-    }
-    return [...acc, ...colors];
+function calculateDayMatrix(amountColonColorArrayRaw) {
+  // filter empty amount
+  const amountColonColorArray = amountColonColorArrayRaw.filter((i) => {
+    const [amount] = getAmountColor(i);
+    return amount > 0;
+  });
+  const groupedByColor = groupByColor(amountColonColorArray);
+  const totalCellsAmount /*: number */ = getTotalCellsAmount(groupedByColor);
+  const coef = 100 / totalCellsAmount;
+  const dayMatrix = amountColonColorArray.map((amoutColonColor, n) => {
+    const [amount, colorIndex] = getAmountColor(amoutColonColor);
+    const result = { color: COLOR_MAPPING[colorIndex], coef: coef * amount };
+    return result;
+  });
+  console.log('!!!', dayMatrix);
+  return dayMatrix;
+}
+
+function getTotalCellsAmount(colorsAmountDict) {
+  let acc = 0;
+  for (let color in colorsAmountDict) {
+    acc += colorsAmountDict[color];
+  }
+
+  return acc;
+}
+function getAmountColor(amountColonColorStr) {
+  const [amountStr, colorStr] = amountColonColorStr.split(':');
+  const amount = parseInt(amountStr, 10);
+  const color = parseInt(colorStr, 10);
+  return [amount, color];
+}
+function groupByColor(amountColonColorArray) {
+  // group by color
+  const reducer = (acc, currentValue) => {
+    const [amount, color] = getAmountColor(currentValue);
+    acc[color] = (acc[color] || 0) + amount;
+    return acc;
   };
-  const init = [];
-  const dayColors = amountColonColor.reduce(dayColorsReducer, init);
+  const dayColors = amountColonColorArray.reduce(reducer, {});
   return dayColors;
 }
 

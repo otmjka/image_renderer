@@ -1,10 +1,10 @@
 const colors = {
-  green: '#12D600',
+  black: '#000',
   pink: '#FF3666',
-  violet: '#5E40DD',
   yellow: '#FFC800',
   gray: '#EDEFF2',
-  black: '#000',
+  violet: '#5E40DD',
+  green: '#12D600',
   white: '#FFF',
 };
 

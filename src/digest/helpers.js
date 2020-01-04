@@ -64,7 +64,8 @@ function makeColorList(amountRaw, colorRaw) {
   }
   return result;
 }
-
+// amountColonColorArrayRaw ['1:1','4:2','0:3','2:4','1:5']
+// result [{color: "#000", coef: 50}, {color: "#000", coef: 50}]
 function calculateDayMatrix(amountColonColorArrayRaw) {
   // filter empty amount
   const amountColonColorArray = amountColonColorArrayRaw.filter((i) => {
@@ -72,17 +73,17 @@ function calculateDayMatrix(amountColonColorArrayRaw) {
     return amount > 0;
   });
   const groupedByColor = groupByColor(amountColonColorArray);
-  const totalCellsAmount /*: number */ = getTotalCellsAmount(groupedByColor);
+  const totalCellsAmount = getTotalCellsAmount(groupedByColor);
   const coef = 100 / totalCellsAmount;
   const dayMatrix = amountColonColorArray.map((amoutColonColor, n) => {
     const [amount, colorIndex] = getAmountColor(amoutColonColor);
     const result = { color: COLOR_MAPPING[colorIndex], coef: coef * amount };
     return result;
   });
-  console.log('!!!', dayMatrix);
   return dayMatrix;
 }
 
+// colorsAmountDict {1:0, 1:1, 1:2} => 3
 function getTotalCellsAmount(colorsAmountDict) {
   let acc = 0;
   for (let color in colorsAmountDict) {
@@ -91,12 +92,24 @@ function getTotalCellsAmount(colorsAmountDict) {
 
   return acc;
 }
+
+// amountColonColorStr '1:2' => [1, 2]
 function getAmountColor(amountColonColorStr) {
   const [amountStr, colorStr] = amountColonColorStr.split(':');
   const amount = parseInt(amountStr, 10);
   const color = parseInt(colorStr, 10);
   return [amount, color];
 }
+
+/*
+amountColonColorArray ['1:1','4:2','2:4','1:5'] =>
+{
+  1: 1,
+  2: 4,
+  4: 2,
+  5: 1,
+}
+*/
 function groupByColor(amountColonColorArray) {
   // group by color
   const reducer = (acc, currentValue) => {
@@ -108,19 +121,6 @@ function groupByColor(amountColonColorArray) {
   return dayColors;
 }
 
-// function isValid(dayMatrix) {
-//   if (dayMatrix.length !== 7) {
-//     return false;
-//   }
-//   let result = true;
-//   dayMatrix.forEach((d) => {
-//     if (d.length !== 5) {
-//       result = false;
-//     }
-//   });
-//   return result;
-// }
-
 function getMappedDays(queryDays) {
   let dayMatrix;
   try {
@@ -128,10 +128,6 @@ function getMappedDays(queryDays) {
       const amountColonColor = d.split(','); // [ '2:5', '1:1', '1:4', '1:3' ],
       return calculateDayMatrix(amountColonColor);
     });
-
-    // if (!isValid(dayMatrix)) {
-    //   return DEFAULT_DAYS;
-    // }
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log(err);

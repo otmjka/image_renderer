@@ -1,16 +1,5 @@
 {
   "singleQuote": true,
   "trailingComma": "all",
-  "arrowParens": "always",
-
-  "overrides": [
-    {
-      "files": "*.test.js",
-      "options": {
-        "singleQuote": true,
-        "trailingComma": "all",
-        "arrowParens": "always"
-      }
-    }
-  ]
+  "arrowParens": "always"
 }
